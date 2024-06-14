@@ -1,0 +1,27 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+svg.tommy .node.male>rect {
+    rx:0;
+    ry:0;
+    fill: #00527d;
+
+}
+svg.tommy .node.female>rect {
+    rx:0;
+    ry:0;
+    fill: #68006c;
+
+}
+svg.tommy image{
+
+    margin:0;
+}
+#tree{
+    margin-top: 50px;
+
+    width: 100%;
+}

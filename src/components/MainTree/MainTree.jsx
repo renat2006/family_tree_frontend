@@ -59,11 +59,23 @@ export default class Tree extends Component {
             }
         });
 
-        this.family.on('update', (sender, oldData, newData) => {
-            console.log('Updated node data:', newData);
-            const updatedNodes = this.family.nodes.map(node => node.id === newData.id ? newData : node);
-            this.props.onSaveNodes(updatedNodes);
+        // Добавим обработчик клика на кнопку с атрибутом data-edit-form-save
+        document.addEventListener('click', (event) => {
+            if (event.target.getAttribute('data-edit-form-save') !== null) {
+                console.log('Save button clicked');
+                this.saveNodes();
+            }
         });
+    }
+
+    saveNodes = () => {
+        if (!this.family.nodes || !Array.isArray(this.family.nodes)) {
+            console.error('Nodes data is invalid:', this.family.nodes);
+            return;
+        }
+
+        console.log('Saving nodes:', this.family.nodes);
+        this.props.onSaveNodes(this.family.nodes);
     }
 
     render() {

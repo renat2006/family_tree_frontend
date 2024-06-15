@@ -11,7 +11,7 @@ const App = () => {
 
     useEffect(() => {
         // Выполняем запрос к бэкенду после монтирования компонента
-        fetch('http://localhost:5000/get_data')
+        fetch('/get_data')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -36,7 +36,7 @@ const App = () => {
 
     const saveDataToServer = () => {
         // Отправляем обновленные данные обратно на сервер
-        fetch('http://localhost:5000/update_data', {
+        fetch('/update_data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
